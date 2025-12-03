@@ -37,7 +37,6 @@
           <a href="index.html" class="nav-link">Accueil</a>
           <a href="formation.html" class="nav-link">Formation</a>
           <a href="tarif.html" class="nav-link">Tarifs</a>
-          <a href="Contacts.php" class="nav-link">Contactez-nous</a>
         </div>
       </div>
     </div>
@@ -171,20 +170,20 @@
     </div>
   </section>
 
-<?php
-  if((isset($_POST['message']) && isset($_POST['subject']) ) && (isset($_POST['email']) && isset($_POST['name']))) {
-    $to = "example@test.com";
-    $subject = $_POST["subject"];
-    $body = "Name:". $_POST['name'];
-    $body .= "Email:". $_POST['email'];
-    $body .= "Message:". $_POST['message'];
-    $headers = "From:". $_POST['email'];
-    $headers .= "Reply-To:". $_POST['email'];
-    if(mail($to, $subject, $body, $headers)) {
-      echo "<p>email envoyé</p>";
+  <?php
+    if((isset($_POST['message']) && isset($_POST['subject']) ) && (isset($_POST['email']) && isset($_POST['name']))) {
+      $to = "example@test.com";
+      $subject = $_POST["subject"];
+      $body = "Name:". $_POST['name'];
+      $body .= "Email:". $_POST['email'];
+      $body .= "Message:". $_POST['message'];
+      $headers = "From:". $_POST['email'];
+      $headers .= "Reply-To:". $_POST['email'];
+      if(mail($to, $subject, $body, $headers)) {
+        echo "<p>email envoyé</p>";
+      }
     }
-  }
-?>
+  ?>
 
   <!-- Map Section -->
   <section class="map-section py-10">

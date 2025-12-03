@@ -190,7 +190,7 @@ h2 {
     width: 90%;
     height: auto;
     padding: 1.25rem;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .pricing-section .cards-grid .glass-card .card-cta {
@@ -295,20 +295,78 @@ main.container {
 }
 
 .pricing-section .cards-grid .glass-card {
-  width: 340px;
-  height: 350px;
-  max-width: none;
-  min-width: none;
+  width: 100%;
+  max-width: 380px;
+  height: 360px; /* uniform card height */
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centre verticalement le contenu dans la carte */
-  align-items: center;     /* centre horizontalement */
+  justify-content: space-between; /* push CTA to the bottom */
+  align-items: stretch;
   text-align: center;
-  padding: 1.75rem;
+  padding: 1.5rem;
   box-sizing: border-box;
   overflow: hidden;
-  cursor: default; /* la carte n'est plus cliquable globalement */
-  gap: 1rem;       /* espace entre contenu et bouton */
+  cursor: default;
+  gap: 1rem;
+}
+
+/* Make the grid items stretch to the same height so fixed card height is consistent */
+.pricing-section.quiz-page .cards-grid {
+  align-items: stretch;
+}
+
+/* Ensure header doesn't grow and paragraph takes remaining space */
+.pricing-section .cards-grid .glass-card .price-card__header {
+  flex: 0 0 auto;
+}
+
+.pricing-section .cards-grid .glass-card p {
+  flex: 1 1 auto;
+  overflow: auto; /* allow scrolling if content is too long */
+  margin-top: 0.5rem;
+}
+
+.pricing-section .cards-grid .glass-card .card-cta {
+  margin-top: 1rem;
+  flex: 0 0 auto;
+}
+
+/* Page-specific overrides for the quiz to avoid large bottom gaps on tall viewports */
+.pricing-section.quiz-page {
+  min-height: auto; /* do not force 100vh here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-section.quiz-page .cards-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* center the grid horizontally */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  justify-items: center;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .pricing-section.quiz-page {
+    padding-top: 60px; /* slightly smaller on tablets */
+  }
+  .pricing-section .cards-grid .glass-card {
+    height: 320px; /* smaller uniform height on tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-section.quiz-page {
+    padding-top: 64px; /* mobile: nav is smaller */
+  }
+  .pricing-section .cards-grid .glass-card {
+    height: 300px; /* mobile height */
+  }
 }
 
 .pricing-section .cards-grid .glass-card .price-card__header {
@@ -349,4 +407,25 @@ main.container {
   background: #0891b2; /* darker cyan on hover */
   transform: translateY(-4px);
   box-shadow: 0 10px 22px rgba(8,145,178,0.12);
+}
+
+/* Optional: ensure footer sits at the bottom of short pages */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make the main section take remaining space so footer is pushed to bottom */
+.pricing-section.quiz-page {
+  flex: 1 0 auto;
+}
+
+/* Ensure footer doesn't create extra visible gap */
+footer {
+  margin-top: auto;
 }
