@@ -1011,3 +1011,71 @@ body {
         transform: translateY(-20px);
     }
 }
+
+/* Unified Button Styles */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #06b6d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background: #0891b2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 15px 35px;
+    background: transparent;
+    color: #64b5f6;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid #64b5f6;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background: rgba(100, 181, 246, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 181, 246, 0.2);
+}
+
+/* Card CTA Button - used on cards */
+.card-cta {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    background: #06b6d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.card-cta:hover {
+    background: #0891b2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(6, 182, 212, 0.3);
+}
