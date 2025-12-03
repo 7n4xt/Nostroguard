@@ -37,6 +37,7 @@
           <a href="index.html" class="nav-link">Accueil</a>
           <a href="formation.html" class="nav-link">Formation</a>
           <a href="tarif.html" class="nav-link">Tarifs</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
         </div>
       </div>
     </div>
