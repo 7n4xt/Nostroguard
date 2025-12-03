@@ -416,3 +416,24 @@ tr:hover td {
 .card-buy-button:hover .button-arrow {
     transform: translateX(5px);
 }
+
+/* Feature Icon Wrapper */
+.feature-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.feature-icon-wrapper svg {
+    filter: drop-shadow(0 0 10px rgba(100, 181, 246, 0.3));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
