@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Cybersécurité Expert - NOSTROGUARD</title>
+    <meta name="description" content="Quiz cybersécurité expert : 5 questions avancées sur le chiffrement, le RGPD, Zero Trust et la gestion de crise en cybersécurité.">
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/Images/NOSTROMOGAURD (1).png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="./assets/CSS/loader.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/CSS/quiz.css">
+    <script src="./assets/Javascript/quiz_3.js" defer></script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Loader -->
+    <div class="loader"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <div class="left-nav">
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
+                        <img class="w-16 ml-4" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                    <a href="formation.html" class="nav-link">Formation</a>
+                    <a href="tarif.html" class="nav-link">Tarifs</a>
+                    <a href="Contacts.php" class="nav-link">Contactez-nous</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quiz Section -->
+    <section class="container mx-auto px-6 pt-32 pb-24">
+        <h2 class="text-5xl font-bold text-center text-gray-800 mb-16 mt-30">Quiz Expert — Concepts Avancés en Cybersécurité</h2>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-8 max-w-2xl mx-auto">
+            <div id="progress-bar" class="bg-blue-900 h-2.5 rounded-full" style="width: 0%"></div>
+        </div>
+
+        <div id="quiz-container" class="max-w-4xl mx-auto">
+            <div class="question-container bg-white p-8 rounded-lg shadow-md">
+                <!-- Question Content -->
+                <div id="question-content"></div>
+
+                <!-- Feedback Container -->
+                <div id="feedback-container" class="hidden mt-6 p-4 rounded-lg"></div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-6 flex justify-between">
+                    <button id="back-btn" class="cyber-button" disabled>Précédent</button>
+                    <button id="continue-btn" class="cyber-button hidden">Continuer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="max-w-2xl mx-auto hidden">
+            <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                <h3 class="text-3xl font-bold mb-4">Votre score: <span id="final-score"></span>/5</h3>
+                <p id="final-feedback" class="text-xl mb-6"></p>
+
+                <div class="action-buttons mb-8">
+                    <div class="pdf-option bg-green-50 p-4 rounded-lg border border-green-200 hover:shadow-lg transition-all">
+                        <h4 class="text-xl font-bold text-green-900 mb-2">Guide Expert en Cybersécurité</h4>
+                        <p class="mb-4">Téléchargez notre guide avancé (PDF)</p>
+                        <button id="download-pdf" class="cyber-button pdf-button inline-block">Télécharger</button>
+                    </div>
+                </div>
+
+                <h4 class="text-2xl font-bold text-purple-900 mb-2">Vous avez complété tous les niveaux !</h4>
+                <p class="mb-4">Montrez votre expertise en cybersécurité</p>
+                <a href="formation.html" class="cyber-button full-course-button inline-block">Suivre la Formation Complète</a>
+                <a href="quiz.html" class="cyber-button full-course-button inline-block">Retourner aux Quiz</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loader JS -->
+    <script src="./assets/Javascript/loader.js"></script>
+    <!-- Mobile Menu Script -->
+    <script src="./assets/Javascript/mobileMenu.js"></script>
+</body>
+
+</html>
