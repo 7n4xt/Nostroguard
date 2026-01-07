@@ -24,6 +24,9 @@
     
     <!-- Favicon -->
     <link rel="icon" href="./assets/Images/NOSTROMOGAURD (1).png" type="image/png">
+    <!-- Resource hints for external resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="./assets/CSS/index.css" rel="stylesheet">
@@ -36,6 +39,9 @@
 </head>
 
 <body>
+    <!-- Skip to main content link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
     <!-- Loader -->
     <div class="loader"></div>
 
@@ -49,7 +55,7 @@
                 <div class="left-nav">
                     <a href="index.html" class="flex items-center">
                         <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
-                        <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="logo">
+                        <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
                     </a>
                 </div>
                 <div class="flex md:flex space-x-8">
@@ -62,6 +68,8 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="awareness-hero">
         <div class="cyber-sphere"></div>
@@ -206,6 +214,7 @@
             </a>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">

@@ -20,6 +20,9 @@
 </head>
 
 <body>
+  <!-- Skip to main content link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  
   <!-- Loader -->
   <div class="loader"></div>
 
@@ -30,7 +33,7 @@
         <div class="left-nav">
           <a href="index.html" class="flex items-center">
             <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
-            <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="logo">
+            <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
           </a>
         </div>
         <div class="flex md:flex space-x-8">
@@ -43,6 +46,8 @@
     </div>
   </nav>
 
+  <!-- Main Content -->
+  <main id="main-content">
   <!-- Contact Section -->
   <section id="contact" class="py-16 bg-gray-50 ">
     <div class="container mx-auto px-6">
@@ -102,19 +107,19 @@
             <div class="social-media mt-10">
               <h3 class="text-xl font-bold mb-4 text-white">Suivez-nous</h3>
               <div class="flex space-x-4">
-                <a href="#" class="social-icon">
+                <a href="#" class="social-icon" aria-label="Suivez-nous sur Twitter">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M22 4.5a8.5 8.5 0 01-2.45.67 4.28 4.28 0 001.88-2.35c-.82.48-1.74.83-2.72 1.02A4.28 4.28 0 0015.31 2 4.27 4.27 0 0011 6.28c0 .34.04.67.11.98a12.12 12.12 0 01-8.8-4.45 4.25 4.25 0 001.32 5.7 4.24 4.24 0 01-1.93-.53v.05a4.27 4.27 0 003.42 4.2 4.25 4.25 0 01-1.93.07 4.28 4.28 0 004 2.97 8.54 8.54 0 01-5.3 1.83c-.34 0-.68-.02-1.02-.06A12.1 12.1 0 008.28 18c7.55 0 11.68-6.26 11.68-11.67 0-.18 0-.35-.01-.53.8-.58 1.5-1.3 2.05-2.12z" />
                   </svg>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="#" class="social-icon" aria-label="Suivez-nous sur Instagram">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M22.7 6.1a7.9 7.9 0 00-.5-1.7 5.5 5.5 0 00-1.3-1.6 5.5 5.5 0 00-1.6-1.3 7.9 7.9 0 00-1.7-.5C16.4.9 15.2.8 12 .8s-4.4.1-5.6.2a7.9 7.9 0 00-1.7.5 5.5 5.5 0 00-1.6 1.3 5.5 5.5 0 00-1.3 1.6 7.9 7.9 0 00-.5 1.7C1.1 7.3 1 8.5 1 11.7s.1 4.4.2 5.6a7.9 7.9 0 00.5 1.7 5.5 5.5 0 001.3 1.6 5.5 5.5 0 001.6 1.3 7.9 7.9 0 001.7.5c1.2.1 2.4.2 5.6.2s4.4-.1 5.6-.2a7.9 7.9 0 001.7-.5 5.7 5.7 0 002.9-2.9 7.9 7.9 0 00.5-1.7c.1-1.2.2-2.4.2-5.6s-.1-4.4-.2-5.6zM12 17.8a6.1 6.1 0 110-12.2 6.1 6.1 0 010 12.2zm6.4-11a1.4 1.4 0 110-2.9 1.4 1.4 0 010 2.9zM12 7.4a4.3 4.3 0 100 8.7 4.3 4.3 0 000-8.7z" />
                   </svg>
                 </a>
-                <a href="#" class="social-icon">
+                <a href="#" class="social-icon" aria-label="Suivez-nous sur LinkedIn">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M20.9 1.9H3.1a2 2 0 00-2 2v16.2a2 2 0 002 2h17.8a2 2 0 002-2V3.9a2 2 0 00-2-2zM8.2 19.1H4.7V9.2h3.5v9.9zM6.5 7.7a2 2 0 110-4 2 2 0 010 4zm12.9 11.4h-3.5v-5.5c0-1.3 0-3-1.9-3-1.8 0-2.1 1.4-2.1 2.9v5.6H8.3V9.2h3.4v1.5h.1c.5-.9 1.6-1.8 3.2-1.8 3.4 0 4 2.2 4 5.1v5.1z" />
@@ -191,7 +196,7 @@
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-10 section-title">Où nous trouver</h2>
       <div class="map-container">
-        <iframe
+        <iframe title="Localisation de Nostroguard à Aix-en-Provence - 2 Rue de la Fourane"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.8145149297336!2d5.447233276082249!3d43.51416226088237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da56f271b81%3A0xca47999fbe3e49ff!2s2%20Rue%20de%20la%20Fourane%2C%2013090%20Aix-en-Provence!5e0!3m2!1sfr!2sfr!4v1692548712348!5m2!1sfr!2sfr"
           width="100%" height="450" style="border:0; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
           allowfullscreen="" loading="lazy">
@@ -199,6 +204,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12">

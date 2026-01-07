@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Paiement - NOSTROGUARD</title>
+    <title>Paiement Formation Cybersécurité - NOSTROGUARD</title>
     <link rel="icon" href="./assets/Images/NOSTROMOGAURD (1).png" type="image/png">
+    <!-- Resource hints for external resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <!-- Tailwind CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="./assets/CSS/index.css" rel="stylesheet">
@@ -14,6 +17,9 @@
 </head>
 
 <body class="bg-gray-50">
+    <!-- Skip to main content link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
     <div class="loader"></div>
 
     <nav class="fixed w-full bg-white shadow-md z-50" id="navbar">
@@ -22,7 +28,7 @@
                 <div class="left-nav">
                     <a href="index.html" class="flex items-center">
                         <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
-                        <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="logo">
+                        <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8">
@@ -36,6 +42,8 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <section class="payment-section">
         <div class="payment-wrapper">
             <div class="payment-grid">
@@ -143,6 +151,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Success Modal -->
     <div id="success-modal" class="modal-overlay">
