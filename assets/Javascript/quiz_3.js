@@ -8,6 +8,8 @@ const questions = [
         ],
         correctAnswer: 2,
         explanation: "Si le pirate intercepte l'email, il aura le coffre-fort ET la clé. Il faut séparer les canaux."
+        ,
+        image: "./assets/Images/secure-zip.png"
     },
     {
         question: "Un client exerce son 'Droit à l'oubli'. Vous supprimez sa fiche dans le logiciel CRM (Salesforce/Hubspot). Est-ce suffisant ?",
@@ -18,6 +20,8 @@ const questions = [
         ],
         correctAnswer: 1,
         explanation: "Le RGPD concerne TOUTES les occurrences de la donnée, y compris vos copies de travail personnelles ('Shadow Data')."
+        ,
+        image: "./assets/Images/logiciel-CRM-Hubspot.webp"
     },
     {
         question: "Qu'est-ce que le principe de 'Moindre Privilège' ?",
@@ -28,7 +32,7 @@ const questions = [
         ],
         correctAnswer: 1,
         explanation: "Cela réduit la 'surface d'attaque'. Si un compte est compromis, le pirate est bloqué dans un périmètre restreint.",
-
+        image: "./assets/Images/moindre-privilège.jpg",
     },
     {
         question: "À la maison, où devez-vous connecter vos objets connectés (Enceintes, Caméras...) ?",
@@ -37,8 +41,9 @@ const questions = [
             "Sur un réseau 'Invité' ou un réseau séparé de ma box.",
             "Sur le partage de connexion de mon téléphone pro."
         ],
-        correctAnswer: 1,
-        explanation: "Les objets connectés sont faciles à pirater. S'ils sont isolés sur un réseau invité, le pirate ne peut pas rebondir vers votre PC Pro."
+    correctAnswer: 1,
+    explanation: "Les objets connectés sont faciles à pirater. S'ils sont isolés sur un réseau invité, le pirate ne peut pas rebondir vers votre PC Pro.",
+    image: "./assets/Images/illustration-smart--connected-devices.jpg"
 
     },
     {
@@ -50,6 +55,7 @@ const questions = [
         ],
         correctAnswer: 2,
         explanation: "Une mauvaise communication peut aggraver la crise et les conséquences juridiques. Seule la cellule de crise est habilitée à parler.",
+        image: "./assets/Images/journaliste-prend-des-notes.jpg"
     }
 ];
 
@@ -61,10 +67,22 @@ let userAnswers = new Array(questions.length).fill(null);
 function displayQuestion(index) {
     const question = questions[index];
     const container = document.getElementById('question-content');
+    const imageElement = document.getElementById('question-image');
 
     // Update progress bar
     const progress = ((index) / questions.length) * 100;
     document.getElementById('progress-bar').style.width = `${progress}%`;
+
+    // Update image if exists
+    if (imageElement) {
+        if (question.image) {
+            imageElement.src = question.image;
+            imageElement.parentElement.classList.remove('hidden');
+        } else {
+            imageElement.src = '';
+            imageElement.parentElement.classList.add('hidden');
+        }
+    }
 
     container.innerHTML = `
       <p class="text-xl font-semibold mb-6">${question.question}</p>

@@ -7,7 +7,8 @@ const questions = [
             "Je donne la moitié du mot de passe pour prouver ma bonne foi."
         ],
         correctAnswer: 1,
-        explanation: "Aucun support informatique légitime ne vous demandera jamais votre mot de passe. C'est la règle d'or."
+        explanation: "Aucun support informatique légitime ne vous demandera jamais votre mot de passe. C'est la règle d'or.",
+        image: "./assets/Images/SupportInfo.jpg"
     },
     {
         question: "Qu'est-ce que le 'Shadow IT' ?",
@@ -17,7 +18,8 @@ const questions = [
             "Un virus qui assombrit l'écran."
         ],
         correctAnswer: 1,
-        explanation: "C'est 'l'informatique de l'ombre'. Utiliser vos outils personnels pour le travail fait perdre le contrôle de la sécurité des données à l'entreprise."
+        explanation: "C'est 'l'informatique de l'ombre'. Utiliser vos outils personnels pour le travail fait perdre le contrôle de la sécurité des données à l'entreprise.",
+        image: "./assets/Images/what-is-shadow-it.png"
     },
     {
         question: "Vous devez traduire un contrat confidentiel contenant des secrets commerciaux. Que faites-vous ?",
@@ -27,7 +29,8 @@ const questions = [
             "J'utilise uniquement l'outil de traduction validé par l'entreprise."
         ],
         correctAnswer: 2,
-        explanation: "Les outils gratuits en ligne stockent souvent ce que vous tapez. Vos secrets commerciaux deviendraient publics."
+        explanation: "Les outils gratuits en ligne stockent souvent ce que vous tapez. Vos secrets commerciaux deviendraient publics.",
+        image: "./assets/Images/proteger-les-secrets-commerciaux.jpg"
     },
     {
         question: "Pourquoi les mises à jour sont-elles critiques ?",
@@ -37,7 +40,8 @@ const questions = [
             "Pour corriger les failles de sécurité (boucher les trous)."
         ],
         correctAnswer: 2,
-        explanation: "Une mise à jour non faite est une porte ouverte pour les Ransomwares."
+        explanation: "Une mise à jour non faite est une porte ouverte pour les Ransomwares.",
+        image: "./assets/Images/mise-a-jour.png"
     },
     {
         question: "Un fournisseur habituel vous envoie un email urgent : 'Nous avons changé de banque, faites le virement sur ce nouveau RIB immédiatement'.",
@@ -47,7 +51,8 @@ const questions = [
             "Je fais un 'contre-appel' sur son numéro habituel pour vérifier."
         ],
         correctAnswer: 2,
-        explanation: "Si sa boîte mail est piratée, répondre par mail ne sert à rien. Il faut changer de canal de communication (téléphone)."
+        explanation: "Si sa boîte mail est piratée, répondre par mail ne sert à rien. Il faut changer de canal de communication (téléphone).",
+        image: "./assets/Images/bank-phishing.png"
     },
     {
         question: "Comment appelle-t-on une tentative de Phishing par SMS ?",
@@ -57,7 +62,8 @@ const questions = [
             "Le Spamming"
         ],
         correctAnswer: 1,
-        explanation: "C'est la contraction de SMS et Phishing. Le Vishing, c'est par la voix (Voice)."
+        explanation: "C'est la contraction de SMS et Phishing. Le Vishing, c'est par la voix (Voice).",
+        image: "./assets/Images/smishing.jpg"
     },
     {
         question: "Un fichier client est trop lourd pour l'email. Quelle solution est à éviter absolument ?",
@@ -67,7 +73,8 @@ const questions = [
             "Déposer le fichier sur le serveur sécurisé de l'entreprise."
         ],
         correctAnswer: 0,
-        explanation: "C'est du Shadow IT. Vous ne savez pas où sont stockées les données ni qui peut y accéder."
+        explanation: "C'est du Shadow IT. Vous ne savez pas où sont stockées les données ni qui peut y accéder.",
+        image: "./assets/Images/file-sending.png"
     },
     {
         question: "Quelle est la caractéristique d'un document 'Confidentiel' ?",
@@ -77,7 +84,8 @@ const questions = [
             "Il ne contient que des images."
         ],
         correctAnswer: 1,
-        explanation: "La fuite d'un document confidentiel peut entraîner des pertes financières ou d'image majeures."
+        explanation: "La fuite d'un document confidentiel peut entraîner des pertes financières ou d'image majeures.",
+        image: "./assets/Images/document-confidentiel.jpg"
     },
     {
         question: "Qu'est-ce que le 'mouvement latéral' d'un virus ?",
@@ -87,7 +95,8 @@ const questions = [
             "L'écran pivote de 90 degrés."
         ],
         correctAnswer: 1,
-        explanation: "Le but de l'attaquant est d'atteindre le cœur du réseau (les serveurs) en passant par votre ordinateur."
+        explanation: "Le but de l'attaquant est d'atteindre le cœur du réseau (les serveurs) en passant par votre ordinateur.",
+        image: "./assets/Images/virus-movement.jpeg"
     },
     {
         question: "Quelle est la seule protection qui garantit de récupérer ses données après un Ransomware ?",
@@ -97,7 +106,8 @@ const questions = [
             "Éteindre l'écran la nuit."
         ],
         correctAnswer: 1,
-        explanation: "Payer ne garantit rien. Seule une sauvegarde qui n'était pas branchée au moment de l'attaque permet de tout restaurer."
+        explanation: "Payer ne garantit rien. Seule une sauvegarde qui n'était pas branchée au moment de l'attaque permet de tout restaurer.",
+        image: "./assets/Images/ransomware.png"
     }
 ];
 
@@ -109,10 +119,22 @@ let userAnswers = new Array(questions.length).fill(null);
 function displayQuestion(index) {
     const question = questions[index];
     const container = document.getElementById('question-content');
+    const imageElement = document.getElementById('question-image');
 
     // Update progress bar
     const progress = ((index) / questions.length) * 100;
     document.getElementById('progress-bar').style.width = `${progress}%`;
+
+    // Update image (if present)
+    if (imageElement) {
+        if (question.image) {
+            imageElement.src = question.image;
+            imageElement.parentElement.classList.remove('hidden');
+        } else {
+            imageElement.src = '';
+            imageElement.parentElement.classList.add('hidden');
+        }
+    }
 
     container.innerHTML = `
       <p class="text-xl font-semibold mb-6">${question.question}</p>
