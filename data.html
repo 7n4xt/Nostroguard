@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Formation Cybersécurité - Sensibilisation aux Menaces | NOSTROGUARD</title>
+    <meta name="description" content="Formation et sensibilisation en cybersécurité pour entreprises. Apprenez à protéger vos données contre le phishing, ransomware et cyberattaques. Experts certifiés.">
+    <meta name="keywords" content="formation cybersécurité, sensibilisation cybersécurité, formation phishing, sécurité informatique, RGPD, formation entreprise">
+    <link rel="canonical" href="https://nostroguard.fr/formation.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Formation Cybersécurité - NOSTROGUARD">
+    <meta property="og:description" content="Formation et sensibilisation en cybersécurité pour entreprises. Protégez vos données avec nos experts certifiés.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nostroguard.fr/formation.html">
+    <meta property="og:image" content="https://nostroguard.fr/assets/Images/NOSTROMOGAURD (1).png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Formation Cybersécurité - NOSTROGUARD">
+    <meta name="twitter:description" content="Formation et sensibilisation en cybersécurité pour entreprises. Protégez vos données avec nos experts certifiés.">
+    <meta name="twitter:image" content="https://nostroguard.fr/assets/Images/NOSTROMOGAURD (1).png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/Images/NOSTROMOGAURD (1).png" type="image/png">
+    <!-- Resource hints for external resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="./assets/CSS/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/CSS/formation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <!-- Loader CSS -->
+    <link href="./assets/CSS/loader.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Skip to main content link for keyboard accessibility -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <!-- Loader -->
+    <div class="loader"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50" id="navbar">
+        <div class="container mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <div class="left-nav">
+                    <a href="index.html" class="flex items-center">
+                        <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
+                        <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
+                    </a>
+                </div>
+                <div class="flex md:flex space-x-8">
+                    <a href="index.php" class="nav-link">Accueil</a>
+                    <a href="tarif.html" class="nav-link">Tarifs</a>
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                    <a href="Contacts.php" class="nav-link">Contactez-nous</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+    <!-- Hero Section -->
+    <section class="awareness-hero">
+        <div class="cyber-sphere"></div>
+        <div class="hero-content">
+            <h1 class="glowing-text">Formation de Sensibilisation à la Cybersécurité</h1>
+            <p class="hero-subtitle">Protégez votre entreprise en formant vos équipes</p>
+        </div>
+    </section>
+    </section>
+
+    <!-- Data Chart Section -->
+    <section id="data-chart-section" class="py-12 container mx-auto px-6">
+        <h2 class="text-2xl font-semibold text-center mb-6">Statistiques d'attaques par année et type</h2>
+        <div class="max-w-4xl mx-auto">
+            <canvas id="attackLineChart" aria-label="Line chart des attaques par année et par type" role="img"></canvas>
+            <div id="chartStatus" class="text-center mt-3 text-red-600" aria-live="polite"></div>
+            <div id="fileLoader" class="text-center mt-3" style="display:none;">
+                <label for="csvFileInput" class="block mb-2 text-gray-700">Si la page est ouverte localement, choisissez le fichier CSV :</label>
+                <input id="csvFileInput" type="file" accept=".csv" class="mx-auto" />
+            </div>
+        </div>
+        <p class="text-sm text-center text-gray-600 mt-4">Les types d'attaques les plus fréquents sont affichés (top 6).</p>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">NOSTROGUARD</div>
+                <p class="text-gray-400">Protection • Expertise • Innovation</p>
+                <div class="mt-8 text-sm text-gray-400">
+                    © 2025 NOSTROGUARD Solutions. Tous droits réservés.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/Javascript/index.js"></script>
+
+    <!-- Loader JS -->
+    <script src="./assets/Javascript/loader.js"></script>
+    <!-- Mobile Menu Script -->
+    <script src="./assets/Javascript/mobileMenu.js"></script>
+
+    <!-- PapaParse for CSV parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+
+    <script>
+    (function(){
+        const csvUrl = './assets/Data/data_cybersecurity_2015-2024.csv';
+        const statusEl = document.getElementById('chartStatus');
+        const fileLoaderEl = document.getElementById('fileLoader');
+        const fileInputEl = document.getElementById('csvFileInput');
+
+        function setStatus(msg, isError){
+            if(statusEl) statusEl.textContent = msg;
+            if(isError) console.error(msg); else console.log(msg);
+        }
+
+        function showFileInput(){ if(fileLoaderEl) fileLoaderEl.style.display = 'block'; }
+
+        if(fileInputEl){
+            fileInputEl.addEventListener('change', function(e){
+                const f = e.target.files && e.target.files[0];
+                if(!f) return;
+                setStatus('Parsing du fichier sélectionné...', false);
+                Papa.parse(f, { header: true, skipEmptyLines: true, complete: function(results){ processData(results.data); } });
+            });
+        }
+
+        function numericSort(a,b){ return (+a) - (+b); }
+
+        function processData(rows){
+            const yearsSet = new Set();
+            const typeCounts = {};
+            rows.forEach(r => {
+                const year = (r['Year'] || '').trim();
+                const type = (r['Attack Type'] || r['AttackType'] || r['Attack_Type'] || '').trim();
+                if(!year || !type) return;
+                yearsSet.add(year);
+                if(!typeCounts[type]) typeCounts[type] = {};
+                typeCounts[type][year] = (typeCounts[type][year] || 0) + 1;
+            });
+
+            const years = Array.from(yearsSet).sort(numericSort);
+            if(years.length === 0){ setStatus('Aucune donnée trouvée dans le CSV (vérifiez les en-têtes Year / Attack Type).', true); return; }
+
+            // pick top 6 attack types by total occurrences
+            const totals = Object.keys(typeCounts).map(t => ({ type: t, total: Object.values(typeCounts[t]).reduce((a,b)=>a+b,0) }));
+            totals.sort((a,b)=>b.total - a.total);
+            const topTypes = totals.slice(0,6).map(d=>d.type);
+
+            const palette = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f'];
+
+            const datasets = topTypes.map((t,i)=>({
+                label: t,
+                data: years.map(y => typeCounts[t][y] || 0),
+                borderColor: palette[i % palette.length],
+                backgroundColor: palette[i % palette.length],
+                fill: false,
+                tension: 0.2,
+                pointRadius: 3
+            }));
+
+            const canvas = document.getElementById('attackLineChart');
+            if(!canvas){ setStatus('Canvas introuvable dans la page.', true); return; }
+            const ctx = canvas.getContext('2d');
+            try{
+                new Chart(ctx, {
+                type: 'line',
+                data: { labels: years, datasets },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: { display: true, text: "Nombre d'attaques par type et par année" },
+                        legend: { position: 'bottom' }
+                    },
+                    interaction: { mode: 'index', intersect: false },
+                    scales: { y: { beginAtZero: true } }
+                }
+                });
+                setStatus('Graphique généré avec succès.', false);
+            }catch(err){
+                setStatus('Erreur lors de la création du graphique: ' + (err && err.message || err), true);
+            }
+        }
+
+        // Try to fetch the CSV. Note: when opening the file via file:// some browsers block fetch/XHR.
+        fetch(csvUrl).then(r => {
+            if(!r.ok) throw new Error('HTTP ' + r.status + ' ' + r.statusText);
+            return r.text();
+        }).then(txt => {
+            Papa.parse(txt, { header: true, skipEmptyLines: true, complete: function(results){ processData(results.data); } });
+        }).catch(err => {
+            const msg = 'Impossible de charger le CSV via fetch. Si la page est ouverte localement, choisissez le fichier CSV ci-dessous ou servez le site depuis un serveur (ex: `python -m http.server`).';
+            setStatus(msg + ' Détail: ' + (err && err.message || err), true);
+            showFileInput();
+        });
+    })();
+    </script>
+
+</body>
+
+</html>

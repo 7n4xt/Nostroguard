@@ -1,0 +1,16 @@
+# Désactiver le listing de répertoire
+Options -Indexes
+
+# (SI autorisé) Définir variable d'environnement OpenAI
+# Remplace "sk_xxx..." par ta clé si tu choisis cette méthode
+SetEnv OPENAI_API_KEY "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"
+
+# Bloquer l'accès aux fichiers sensibles
+<FilesMatch "^(\.env|openai_key\.php|config\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquer l'accès direct aux backups / fichiers git
+<FilesMatch "\.(bak|sql|tgz|gz|env|git)$">
+    Require all denied
+</FilesMatch>

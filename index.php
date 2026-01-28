@@ -58,6 +58,34 @@
     <script src="./assets/Javascript/index.js" defer></script>
 </head>
 
+<!-- Chatbot widget: coller juste avant </body> -->
+<!-- Floating button -->
+<button id="chat-toggle" aria-label="Ouvrir le chat" class="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg focus:outline-none">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8-1.79 0-3.46-.36-4.93-1L3 21l1.66-4.07C3.7 15.45 3 13.78 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+</button>
+
+<!-- Chat panel (hidden by default) -->
+<aside id="chat-panel" class="fixed bottom-24 right-6 z-50 w-80 md:w-96 max-h-[70vh] bg-white rounded-xl shadow-xl border overflow-hidden hidden flex flex-col">
+  <header class="px-4 py-3 bg-blue-600 text-white flex items-center justify-between">
+    <div class="font-semibold">Assistant Nostroguard</div>
+    <button id="chat-close" aria-label="Fermer" class="text-white opacity-90 hover:opacity-100 focus:outline-none">
+      ✕
+    </button>
+  </header>
+
+  <div id="chat-body" class="p-3 overflow-auto flex-1 space-y-3 bg-gray-50">
+    <!-- messages insérés ici -->
+  </div>
+
+  <div class="px-3 py-3 border-t bg-white">
+    <div class="flex items-center gap-2">
+      <textarea id="chat-input" rows="2" class="flex-1 resize-none rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Posez une question..."></textarea>
+      <button id="chat-send" class="bg-blue-600 hover:bg-blue-700 text-white rounded-md px-3 py-2 text-sm">Envoyer</button>
+    </div>
+    <div id="chat-help" class="text-xs text-gray-400 mt-2">Appuyez sur Entrée pour envoyer (Shift+Enter pour un saut de ligne).</div>
+  </div>
+</aside>
+
 <body class="bg-gray-50">
     <!-- Skip to main content link for keyboard accessibility -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
@@ -70,7 +98,7 @@
         <div class="container mx-auto px-6 py-5">
             <div class="flex items-center justify-between">
                 <div class="left-nav">
-                    <a href="index.html" class="flex items-center">
+                    <a href="index.php" class="flex items-center">
                         <div class="text-2xl font-bold text-blue-900">NOSTROGUARD</div>
                         <img class="logo" src="./assets/Images/NOSTROMOGAURD (1).png" alt="Logo Nostroguard - Formation en cybersécurité">
                     </a>
@@ -587,5 +615,111 @@
     <!-- Mobile Menu Script -->
     <script src="./assets/Javascript/mobileMenu.js"></script>
 </body>
+
+<script>
+/* Chat widget JS - copier tel quel */
+(function(){
+  const toggle = document.getElementById('chat-toggle');
+  const panel = document.getElementById('chat-panel');
+  const closeBtn = document.getElementById('chat-close');
+  const body = document.getElementById('chat-body');
+  const input = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('chat-send');
+
+  let busy = false;
+
+  function showPanel(show){
+    panel.classList.toggle('hidden', !show);
+    if(show) {
+      input.focus();
+      body.scrollTop = body.scrollHeight;
+    }
+  }
+
+  toggle.addEventListener('click', () => showPanel(true));
+  closeBtn.addEventListener('click', () => showPanel(false));
+
+  function appendMessage(text, who){
+    const wrap = document.createElement('div');
+    wrap.className = who === 'user' ? 'flex justify-end' : 'flex justify-start';
+    const msg = document.createElement('div');
+    msg.className = who === 'user'
+      ? 'max-w-[85%] bg-blue-600 text-white px-3 py-2 rounded-lg text-sm'
+      : 'max-w-[85%] bg-white border px-3 py-2 rounded-lg text-sm text-gray-800';
+    msg.textContent = text;
+    wrap.appendChild(msg);
+    body.appendChild(wrap);
+    body.scrollTop = body.scrollHeight;
+    return msg;
+  }
+
+  function setTyping(visible){
+    if(visible){
+      const el = document.createElement('div');
+      el.id = 'typing-indicator';
+      el.className = 'flex justify-start';
+      el.innerHTML = '<div class="max-w-[60%] bg-white border px-3 py-2 rounded-lg text-sm text-gray-800">...</div>';
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    } else {
+      const t = document.getElementById('typing-indicator');
+      if(t) t.remove();
+    }
+  }
+
+  async function sendMessage(){
+    const text = input.value.trim();
+    if(!text || busy) return;
+    // protection client simple : limiter la taille
+    if(text.length > 2000){
+      appendMessage('Le message est trop long (max 2000 caractères).', 'bot');
+      return;
+    }
+
+    appendMessage(text, 'user');
+    input.value = '';
+    setTyping(true);
+    busy = true;
+    sendBtn.disabled = true;
+
+    try {
+      const res = await fetch('api/chat.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+
+      if(!res.ok){
+        const txt = await res.text();
+        appendMessage('Erreur serveur: ' + res.status + ' ' + txt, 'bot');
+      } else {
+        const data = await res.json();
+        if(data && data.reply){
+          setTyping(false);
+          appendMessage(data.reply, 'bot');
+        } else {
+          setTyping(false);
+          appendMessage('Aucune réponse reçue.', 'bot');
+        }
+      }
+    } catch (err){
+      setTyping(false);
+      appendMessage('Erreur : ' + err.message, 'bot');
+    } finally {
+      busy = false;
+      sendBtn.disabled = false;
+    }
+  }
+
+  sendBtn.addEventListener('click', sendMessage);
+  input.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter' && !e.shiftKey){
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+})();
+</script>
 
 </html>
